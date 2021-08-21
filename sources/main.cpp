@@ -1,8 +1,8 @@
 #include <iostream>
 #include <windows.h>
-#include "Finances.h"
-#include "UsersManager.h"
-#include "AdditionalFunctions.h"
+#include "../headers/Finances.h"
+#include "../headers/UsersManager.h"
+#include "../headers/AdditionalFunctions.h"
 
 using namespace std;
 
@@ -10,12 +10,16 @@ const int TIME_TO_SLEEP = 2000;
 
 int main()
 {
-    Finances finances("Users,xml", "Incomes.xml", "Expenses.xml");
+    Finances finances("Users.xml", "Incomes.xml", "Expenses.xml");
     User loggedUser;
     char choice;
     while(true)
     {
         system("cls");
+
+        cin.clear();
+        fflush(stdin);
+
         if(loggedUser.getId() < 0)
         {
             choice = AdditionalFunctions::chooseOptionFromMainMenu();
@@ -40,19 +44,19 @@ int main()
             switch (choice)
             {
             case '1':
-                //finances.addIncome(loggedUser.getId());
+                finances.addIncome(loggedUser.getId());
                 break;
             case '2':
-                //finances.wyszukajIncomeowPoImieniu();
+                finances.addExpense(loggedUser.getId());
                 break;
             case '3':
-                //finances.wyszukajIncomeowPoNazwisku();
+                finances.showCurrentMonthBalance();
                 break;
             case '4':
-                //finances.showAllIncomes();
+                finances.showPreviousMonthBalance();
                 break;
             case '5':
-                //finances.removeIncome();
+                finances.showBalanceFromSpecifiedPeriod();
                 break;
             case '7':
                 finances.changePasswordOfLoggedUser(loggedUser);

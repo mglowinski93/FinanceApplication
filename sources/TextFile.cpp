@@ -1,4 +1,4 @@
-#include "TextFile.h"
+#include "../headers/TextFile.h"
 
 string TextFile::getFileName()
 {

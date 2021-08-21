@@ -1,2 +1,8 @@
 bin/
 obj/
+*.xml
+*.layout
+*.depend
+*.cbp
+*.mm
+*.exe
