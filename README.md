@@ -1,4 +1,4 @@
-# FinancesApp
+# Finance application
 
 Console application for adding, removing and summarizing expenses and incomes.
 
